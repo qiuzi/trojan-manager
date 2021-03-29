@@ -16,8 +16,8 @@
 ## Panel Installation
 ```
 - cd into root folder /www/xxx/public_html
-- wget https://github.com/frainzy1477/trojan-manager/releases/download/v1.0/trojan-manager.zip
-- unzip trojan-manager.zip
+- wget https://github.com/frainzy1477/trojan-manager/archive/refs/tags/v1.0.zip
+- unzip trojan-manager-1.0.zip
 - chmod -R 777 /www/xxx/public_html
 - Edit config/config.php and set database credentials
 - Upload sql/trojan.sql to your database
