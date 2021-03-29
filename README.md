@@ -31,6 +31,9 @@ location / {
 - Reload /Restart ngnix
 - Enjoy
 ```
+## Default login
+- login: admin
+- password: admin
 
 ## Cron Job
 crontab -e 
