@@ -68,3 +68,5 @@ crontab -e
 - [SERVER BACKEND](https://github.com/frainzy1477/trojan-go-webapi)
 
 
+### NOTE
+IF YOU UPDATE SMARTY REMEMBER TO REPLACE FILE smarty_internal_resource_file.php   IN   .../vendor/smarty/smarty/libs/sysplugins/smarty_internal_resource_file.php
