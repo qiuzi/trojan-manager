@@ -325,57 +325,6 @@
             "install-path": "../clue/stream-filter"
         },
         {
-            "name": "coinbase/coinbase-commerce",
-            "version": "1.0.11",
-            "version_normalized": "1.0.11.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/coinbase/coinbase-commerce-php.git",
-                "reference": "af80e93b8857f80740044510756e647420527b4b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/coinbase/coinbase-commerce-php/zipball/af80e93b8857f80740044510756e647420527b4b",
-                "reference": "af80e93b8857f80740044510756e647420527b4b",
-                "shasum": ""
-            },
-            "require": {
-                "guzzlehttp/guzzle": "~5.0|~6.0",
-                "php": ">=5.4.0",
-                "psr/http-message": "^1.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^4.7",
-                "squizlabs/php_codesniffer": "3.*"
-            },
-            "time": "2020-04-29T17:00:24+00:00",
-            "type": "library",
-            "installation-source": "dist",
-            "autoload": {
-                "psr-4": {
-                    "CoinbaseCommerce\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache-2.0"
-            ],
-            "description": "Coinbase Commerce API library",
-            "homepage": "https://commerce.coinbase.com/",
-            "keywords": [
-                "bitcoin",
-                "coinbase",
-                "coinbase-commerce",
-                "ethereum",
-                "litecoin"
-            ],
-            "support": {
-                "issues": "https://github.com/coinbase/coinbase-commerce-php/issues",
-                "source": "https://github.com/coinbase/coinbase-commerce-php/tree/1.0.11"
-            },
-            "install-path": "../coinbase/coinbase-commerce"
-        },
-        {
             "name": "doctrine/inflector",
             "version": "1.4.3",
             "version_normalized": "1.4.3.0",
@@ -549,83 +498,6 @@
                 "source": "https://github.com/endroid/qr-code/tree/2.5.0"
             },
             "install-path": "../endroid/qr-code"
-        },
-        {
-            "name": "endroid/qrcode",
-            "version": "2.5.0",
-            "version_normalized": "2.5.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/endroid/qr-code.git",
-                "reference": "a9a57ab57ac75928fcdcfb2a71179963ff6fe573"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/endroid/qr-code/zipball/a9a57ab57ac75928fcdcfb2a71179963ff6fe573",
-                "reference": "a9a57ab57ac75928fcdcfb2a71179963ff6fe573",
-                "shasum": ""
-            },
-            "require": {
-                "bacon/bacon-qr-code": "^1.0.3",
-                "ext-gd": "*",
-                "khanamiryan/qrcode-detector-decoder": "^1.0",
-                "myclabs/php-enum": "^1.5",
-                "php": ">=5.6",
-                "symfony/options-resolver": ">=2.7",
-                "symfony/property-access": ">=2.7"
-            },
-            "require-dev": {
-                "phpunit/phpunit": ">=5.7",
-                "symfony/asset": ">=2.7",
-                "symfony/browser-kit": ">=2.7",
-                "symfony/finder": ">=2.7",
-                "symfony/framework-bundle": ">=2.7",
-                "symfony/http-kernel": ">=2.7",
-                "symfony/templating": ">=2.7",
-                "symfony/twig-bundle": ">=2.7",
-                "symfony/yaml": ">=2.7"
-            },
-            "time": "2017-10-22T18:56:00+00:00",
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.x-dev"
-                }
-            },
-            "installation-source": "dist",
-            "autoload": {
-                "psr-4": {
-                    "Endroid\\QrCode\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Jeroen van den Enden",
-                    "email": "info@endroid.nl",
-                    "homepage": "http://endroid.nl/"
-                }
-            ],
-            "description": "Endroid QR Code",
-            "homepage": "https://github.com/endroid/QrCode",
-            "keywords": [
-                "bundle",
-                "code",
-                "endroid",
-                "flex",
-                "qr",
-                "qrcode",
-                "symfony"
-            ],
-            "support": {
-                "issues": "https://github.com/endroid/qr-code/issues",
-                "source": "https://github.com/endroid/qr-code/tree/2.5.0"
-            },
-            "abandoned": "endroid/qr-code",
-            "install-path": "../endroid/qrcode"
         },
         {
             "name": "esdeathlove/datatables",
@@ -1511,6 +1383,57 @@
                 "source": "https://github.com/khanamiryan/php-qrcode-detector-decoder/tree/1.0.4"
             },
             "install-path": "../khanamiryan/qrcode-detector-decoder"
+        },
+        {
+            "name": "kokspflanze/alpha-vantage-api",
+            "version": "0.10",
+            "version_normalized": "0.10.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kokspflanze/alpha-vantage-api.git",
+                "reference": "cbe09cc994001363786aacfa6f2a6532f5075ab9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kokspflanze/alpha-vantage-api/zipball/cbe09cc994001363786aacfa6f2a6532f5075ab9",
+                "reference": "cbe09cc994001363786aacfa6f2a6532f5075ab9",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.5 || ^7.2",
+                "php": "^7.3 || ^8.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.5.8",
+                "squizlabs/php_codesniffer": "^3.5"
+            },
+            "suggest": {
+                "psr/container": "If you want use factories for PSR-11 Containers"
+            },
+            "time": "2021-03-04T18:49:52+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "AlphaVantage\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Alpha Vantage API client",
+            "homepage": "https://github.com/kokspflanze/alpha-vantage-api",
+            "keywords": [
+                "alpha-vantage",
+                "alphavantage",
+                "api"
+            ],
+            "support": {
+                "issues": "https://github.com/kokspflanze/alpha-vantage-api/issues",
+                "source": "https://github.com/kokspflanze/alpha-vantage-api/tree/0.10"
+            },
+            "install-path": "../kokspflanze/alpha-vantage-api"
         },
         {
             "name": "kylekatarnls/update-helper",
@@ -3006,6 +2929,57 @@
                 "source": "https://github.com/silexphp/Pimple/tree/v3.4.0"
             },
             "install-path": "../pimple/pimple"
+        },
+        {
+            "name": "plisio/plisio-api-php",
+            "version": "1.0.2",
+            "version_normalized": "1.0.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Plisio/plisio-api-php.git",
+                "reference": "1956fdc0e525d8e60b076bf880184a5a33e3fc0d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Plisio/plisio-api-php/zipball/1956fdc0e525d8e60b076bf880184a5a33e3fc0d",
+                "reference": "1956fdc0e525d8e60b076bf880184a5a33e3fc0d",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*"
+            },
+            "time": "2020-08-18T12:48:24+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Plisio\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Plisio API library for PHP",
+            "homepage": "https://plisio.net",
+            "keywords": [
+                "bitcoin",
+                "bitcoin cash",
+                "dogecoin",
+                "ethereum",
+                "gateway",
+                "litecoin",
+                "merchant",
+                "payment",
+                "plisio",
+                "zcash"
+            ],
+            "support": {
+                "issues": "https://github.com/Plisio/plisio-api-php/issues",
+                "source": "https://github.com/Plisio/plisio-api-php/tree/v1.0.2"
+            },
+            "install-path": "../plisio/plisio-api-php"
         },
         {
             "name": "predis/predis",

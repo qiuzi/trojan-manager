@@ -20,11 +20,11 @@
         "lokielse/omnipay-alipay": "*",		
         "khanamiryan/qrcode-detector-decoder": "*",
         "symfony/yaml": "*",
-        "endroid/qrcode": "^2.5",
         "endroid/qr-code": "^2.5",
+		"kokspflanze/alpha-vantage-api":"^0.10.0",
 		"paypal/paypal-checkout-sdk": "1.0.1",
 		"twilio/sdk": "*",
-		"coinbase/coinbase-commerce": "*",
+		"plisio/plisio-api-php": "^1.0",
         "aws/aws-sdk-php":"*",
         "irazasyed/telegram-bot-sdk": "^2.0"
     },

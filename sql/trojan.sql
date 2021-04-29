@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 29, 2021 at 06:08 PM
+-- Generation Time: Apr 29, 2021 at 05:38 PM
 -- Server version: 5.5.68-MariaDB
--- PHP Version: 7.4.15
+-- PHP Version: 7.4.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -88,76 +88,84 @@ INSERT INTO `config` (`name`, `value`) VALUES
 ('admin_telegram', ''),
 ('alipay_url', ''),
 ('alphavantage_apikey', ''),
-('api_key', 'RYWGAx5nMGvcZrwMm5I9'),
-('appName', 'TPANEL'),
+('api_key', ''),
+('appName', ''),
 ('aws_key', ''),
-('aws_region', 'us-east-1'),
+('aws_region', 'ap-southeast-1'),
 ('aws_secret', ''),
 ('backup_email', ''),
 ('backup_password', ''),
 ('baseUrl', ''),
-('buy_reset', '0'),
+('buy_reset', '1'),
 ('client_id', ''),
-('conn_price', '10.00'),
+('conn_price', '10'),
+('crypto_secret', ''),
+('currency', 'BTC'),
+('currency_name', 'Bitcoin'),
 ('debug', 'false'),
 ('email_backup', '0'),
-('email_verify', '0'),
-('enable_alipay', '0'),
-('enable_backup', '0'),
-('enable_ga_tracking', '0'),
-('enable_invite', '0'),
+('email_verify', '1'),
+('enable_alipay', '1'),
+('enable_backup', '1'),
+('enable_crypto', '1'),
+('enable_ga_tracking', '1'),
+('enable_invite', '1'),
 ('enable_kill', '1'),
 ('enable_paypal', '0'),
 ('enable_reg', '1'),
-('enable_tawkchat', '0'),
-('enable_telegram', 'false'),
+('enable_tawkchat', '1'),
+('enable_telegram', 'true'),
 ('enable_wechat', '0'),
 ('exp_reset', '1'),
-('ga_id', ''),
+('ga_id', 'ga:'),
 ('ios_account', ''),
 ('ios_passwd', ''),
-('jkstate', '0'),
-('lastheart', '1614953022'),
-('lastpay', '1614844842'),
+('jkstate', '1'),
+('lastheart', ''),
+('lastpay', ''),
+('loginverify', '0'),
 ('logo_path', '/app/app-assets/images/img/logo.png'),
-('mailDriver', 'none'),
+('mailDriver', 'sendgrid'),
 ('mailgun_domain', ''),
 ('mailgun_key', ''),
 ('mailgun_sender', ''),
 ('maintenance', '0'),
 ('mobile_verify', '0'),
-('muKey', 'panelkey2021'),
-('order_exp', '2'),
+('muKey', ''),
+('order_exp', '5'),
 ('paypal_client', ''),
-('paypal_mode', '0'),
+('paypal_mode', '1'),
+('paypal_sandbox_client', ''),
+('paypal_sandbox_secret', ''),
 ('paypal_secret', ''),
 ('pay_bal', 'true'),
 ('pwdMethod', 'sha256'),
-('rate', '6.52'),
+('rate', '6.47'),
 ('rebate', '5'),
-('reg_connector', '2'),
+('reg_connector', '1'),
 ('reg_group', '1'),
-('reg_level', '2'),
+('reg_level', '3'),
 ('reg_speed', '1024'),
-('reg_traffic', '100'),
-('reg_traffic_exp', '100'),
+('reg_traffic', '5'),
+('reg_traffic_exp', '2'),
 ('rememberMeDuration', '7'),
-('salt', 'Panel2021@Saltkey'),
+('salt', ''),
 ('sendgrid_key', ''),
 ('sendgrid_name', ''),
 ('sendgrid_sender', ''),
-('site_key', '1148881919810'),
-('smsDriver', 'none'),
-('subUrl', '/subscribe/'),
+('sessionDriver', NULL),
+('site_key', '1145141919810'),
+('smsDriver', 'sns'),
+('subUrl', ''),
 ('tawkchat_api', ''),
 ('tawkchat_id', ''),
 ('tawkchat_widget', NULL),
-('telegram_backup', '0'),
+('telegram_backup', '1'),
 ('telegram_bot', ''),
 ('telegram_chatid', ''),
 ('telegram_gid', ''),
 ('telegram_group_link', ''),
-('telegram_group_quiet', 'false'),
+('telegram_group_quiet', 'true'),
 ('telegram_request_token', 'sjhueAMAndnenw2k2k1mmsJSJWMWiwiwthgfhgfhx'),
 ('telegram_token', ''),
 ('tracking_id', ''),
@@ -450,6 +458,33 @@ CREATE TABLE `coupon` (
   `credit` int(11) NOT NULL,
   `quota_type` bigint(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `crypto_currency`
+--
+
+CREATE TABLE `crypto_currency` (
+  `id` int(20) NOT NULL,
+  `currency` varchar(10) DEFAULT NULL,
+  `name` text
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `crypto_currency`
+--
+
+INSERT INTO `crypto_currency` (`id`, `currency`, `name`) VALUES
+(10, 'BTC', 'Bitcoin'),
+(11, 'LTC', 'Litecoin'),
+(12, 'DASH', 'Dash'),
+(13, 'ZEC', 'Zcash'),
+(14, 'DOGE', 'Dogecoin'),
+(15, 'BCH', 'Bitcoin Cash'),
+(16, 'XMR', 'Monero'),
+(17, 'ETH', 'Ethereum'),
+(18, 'USDT', 'Tether');
 
 -- --------------------------------------------------------
 
@@ -857,7 +892,11 @@ CREATE TABLE `orders` (
   `discount` decimal(12,2) DEFAULT NULL,
   `exp` bigint(20) DEFAULT NULL,
   `conn_price` decimal(12,2) DEFAULT NULL,
-  `conn_num` int(3) NOT NULL DEFAULT '0'
+  `conn_num` int(2) NOT NULL DEFAULT '0',
+  `expdate` text,
+  `amount` varchar(11) DEFAULT NULL,
+  `wallet` text NOT NULL,
+  `pending` varchar(11) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -869,13 +908,13 @@ CREATE TABLE `orders` (
 CREATE TABLE `package` (
   `id` bigint(20) NOT NULL,
   `type` varchar(25) DEFAULT NULL,
-  `name` text NOT NULL,
+  `name` text,
   `cn_name` text,
   `content` text NOT NULL,
   `status` int(11) NOT NULL DEFAULT '1',
   `price` decimal(12,2) DEFAULT NULL,
   `monthly_days` bigint(2) NOT NULL DEFAULT '30',
-  `quater_days` bigint(2) NOT NULL DEFAULT '90',
+  `quater__days` bigint(2) NOT NULL DEFAULT '90',
   `semiannual_days` bigint(2) NOT NULL DEFAULT '180',
   `annual_days` bigint(2) NOT NULL DEFAULT '360',
   `monthly_price` decimal(12,2) NOT NULL,
@@ -910,6 +949,7 @@ CREATE TABLE `servers` (
   `type` int(3) NOT NULL,
   `server` varchar(128) NOT NULL,
   `info` varchar(128) NOT NULL,
+  `status` varchar(128) NOT NULL,
   `traffic_rate` float NOT NULL DEFAULT '1',
   `node_class` int(11) NOT NULL DEFAULT '0',
   `node_speedlimit` int(20) NOT NULL DEFAULT '0',
@@ -948,6 +988,27 @@ CREATE TABLE `server_online_log` (
   `online_user` int(11) NOT NULL,
   `log_time` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `speedtest`
+--
+
+CREATE TABLE `speedtest` (
+  `id` bigint(20) NOT NULL,
+  `nodeid` int(11) NOT NULL,
+  `datetime` bigint(20) NOT NULL,
+  `telecomping` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `telecomeupload` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `telecomedownload` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `unicomping` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `unicomupload` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `unicomdownload` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `cmccping` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `cmccupload` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `cmccdownload` text COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -1024,6 +1085,7 @@ CREATE TABLE `user` (
   `pass` varchar(256) NOT NULL,
   `passwd` varchar(16) NOT NULL,
   `uuid` text COMMENT 'uuid',
+  `del_uuid` text NOT NULL,
   `mobile` varchar(20) NOT NULL,
   `t` int(11) NOT NULL DEFAULT '0',
   `u` bigint(20) NOT NULL,
@@ -1050,20 +1112,13 @@ CREATE TABLE `user` (
   `telegram_id` bigint(20) DEFAULT NULL,
   `telegram_name` varchar(25) DEFAULT NULL,
   `expire_notified` tinyint(1) NOT NULL DEFAULT '0',
-  `traffic_notified` tinyint(1) DEFAULT '0',
+  `traffic_notified` tinyint(1) NOT NULL DEFAULT '0',
   `afflink` varchar(25) DEFAULT NULL,
   `notification` int(3) NOT NULL DEFAULT '1',
   `used` int(3) NOT NULL DEFAULT '0',
   `disconnect` text NOT NULL,
   `ref_by` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `user`
---
-
-INSERT INTO `user` (`id`, `user_name`, `email`, `pass`, `passwd`, `uuid`, `mobile`, `t`, `u`, `d`, `transfer_enable`, `switch`, `enable`, `type`, `reg_date`, `money`, `expire_time`, `is_email_verify`, `reg_ip`, `node_speedlimit`, `node_connector`, `is_admin`, `last_day_t`, `class`, `expire_in`, `remark`, `node_group`, `reset_day`, `reset_bandwidth`, `telegram_id`, `telegram_name`, `expire_notified`, `traffic_notified`, `afflink`, `notification`, `used`, `disconnect`, `ref_by`) VALUES
-(1, 'admin', 'admin', '829858b625a1d9320335aa29684fac4365a45b3a699095006b5c78e52c5eae73', 'xvMzcf', 'b2f03d4a-5fdc-3e97-9658-2898132c73b2', '', 0, 0, 0, 107374182400, 1, 1, 1, '2021-03-29 18:05:32', '0.00', 0, 0, '127.0.0.1', 1024, 2, 1, 0, 0, '2021-07-07 18:05:32', NULL, 0, 0, '0.00', NULL, NULL, 0, 0, '6VC0Q8OL2h', 1, 0, '', 0);
 
 -- --------------------------------------------------------
 
@@ -1151,6 +1206,12 @@ ALTER TABLE `country`
 -- Indexes for table `coupon`
 --
 ALTER TABLE `coupon`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `crypto_currency`
+--
+ALTER TABLE `crypto_currency`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1259,7 +1320,10 @@ ALTER TABLE `tmp_price`
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_name` (`user_name`),
+  ADD KEY `uid` (`id`),
+  ADD KEY `email` (`email`);
 
 --
 -- Indexes for table `user_subscribe_log`
@@ -1306,6 +1370,12 @@ ALTER TABLE `commission`
 --
 ALTER TABLE `coupon`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `crypto_currency`
+--
+ALTER TABLE `crypto_currency`
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `disconnect_uuid`
@@ -1407,7 +1477,7 @@ ALTER TABLE `ticket`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `user_subscribe_log`

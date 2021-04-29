@@ -1,24 +1,35 @@
 <?php
-$TPanel['timeZone'] 	= "PRC"; 
-
 $TPanel['debug']        = false; 
+
+$TPanel['timeZone'] 	= "PRC"; 
     
-$TPanel['default_lang'] = "en"; // en & zh-cn
+$TPanel['default_lang'] = "zh-cn"; // en & zh-cn 
 
-$TPanel['restrict_phonecode'] = false;  
-$TPanel['whitelist_phonecode_country'] = ['China +86','India +91','United States +1','United Kingdom +44'];
+$TPanel['restrict_phonecode'] = false; 
 
+$TPanel['restrict_email'] = false;
 
-$TPanel['restrict_email'] = false; 
-$TPanel['whitelist_email'] = ['@gmail.com','@qq.com','@outlook.com','@protonmail.com','@ymail.com','@yahoo.com','@hotmail.com','@hotmail.co.uk'];
+$TPanel['whitelist_phonecode_country'] = [
+    '+86' => 'China +86',
+    '+1'  => 'United States +1',
+    '+91' => 'India +91',
+    '44'  => 'United Kingdom +44'
+];
 
+$TPanel['whitelist_email'] = [
+	'@gmail.com','@qq.com',
+	'@outlook.com','@protonmail.com',
+	'@ymail.com','@yahoo.com',
+	'@hotmail.com',
+	'@hotmail.co.uk'
+];
 
 $TPanel['db_driver']    = 'mysql';   
 $TPanel['db_host']      = 'localhost';
 $TPanel['db_socket']    = '';
-$TPanel['db_database']  = 'trojan';           
-$TPanel['db_username']  = 'root';             
-$TPanel['db_password']  = 'root';           
+$TPanel['db_database']  = '';           
+$TPanel['db_username']  = '';             
+$TPanel['db_password']  = '';           
 $TPanel['db_charset']   = 'utf8';
 $TPanel['db_collation'] = 'utf8_general_ci'; 
 $TPanel['db_prefix']    = '';  

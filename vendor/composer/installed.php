@@ -65,15 +65,6 @@
       ),
       'reference' => 'aeb7d8ea49c7963d3b581378955dbf5bc49aa320',
     ),
-    'coinbase/coinbase-commerce' => 
-    array (
-      'pretty_version' => '1.0.11',
-      'version' => '1.0.11.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => 'af80e93b8857f80740044510756e647420527b4b',
-    ),
     'doctrine/inflector' => 
     array (
       'pretty_version' => '1.4.3',
@@ -84,15 +75,6 @@
       'reference' => '4650c8b30c753a76bf44fb2ed00117d6f367490c',
     ),
     'endroid/qr-code' => 
-    array (
-      'pretty_version' => '2.5.0',
-      'version' => '2.5.0.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => 'a9a57ab57ac75928fcdcfb2a71179963ff6fe573',
-    ),
-    'endroid/qrcode' => 
     array (
       'pretty_version' => '2.5.0',
       'version' => '2.5.0.0',
@@ -235,6 +217,15 @@
       array (
       ),
       'reference' => '07fceefb79d895e858e52921afb9c1433d2f3d5e',
+    ),
+    'kokspflanze/alpha-vantage-api' => 
+    array (
+      'pretty_version' => '0.10',
+      'version' => '0.10.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'cbe09cc994001363786aacfa6f2a6532f5075ab9',
     ),
     'kylekatarnls/update-helper' => 
     array (
@@ -463,6 +454,15 @@
       array (
       ),
       'reference' => '86406047271859ffc13424a048541f4531f53601',
+    ),
+    'plisio/plisio-api-php' => 
+    array (
+      'pretty_version' => '1.0.2',
+      'version' => '1.0.2.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '1956fdc0e525d8e60b076bf880184a5a33e3fc0d',
     ),
     'predis/predis' => 
     array (

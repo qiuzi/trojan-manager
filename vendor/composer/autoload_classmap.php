@@ -159,7 +159,6 @@ return array(
     'Smarty_Internal_ParseTree_Text' => $vendorDir . '/smarty/smarty/libs/sysplugins/smarty_internal_parsetree_text.php',
     'Smarty_Internal_Resource_Eval' => $vendorDir . '/smarty/smarty/libs/sysplugins/smarty_internal_resource_eval.php',
     'Smarty_Internal_Resource_Extends' => $vendorDir . '/smarty/smarty/libs/sysplugins/smarty_internal_resource_extends.php',
-    'Smarty_Internal_Resource_File' => $vendorDir . '/smarty/smarty/libs/sysplugins/smarty_internal_resource_file.php',
     'Smarty_Internal_Resource_Php' => $vendorDir . '/smarty/smarty/libs/sysplugins/smarty_internal_resource_php.php',
     'Smarty_Internal_Resource_Registered' => $vendorDir . '/smarty/smarty/libs/sysplugins/smarty_internal_resource_registered.php',
     'Smarty_Internal_Resource_Stream' => $vendorDir . '/smarty/smarty/libs/sysplugins/smarty_internal_resource_stream.php',

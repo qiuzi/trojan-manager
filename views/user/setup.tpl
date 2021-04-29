@@ -2,16 +2,19 @@
                                         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                             <div class="modal-content" >
 												<div class="modal-header">
-													<h5 class="modal-title" >ANDROID </h5>
-													
-												</div>
-												           
+													<h5 class="modal-title" >CLASH ANDROID </h5>
+												</div>      
                                                 <div class="modal-body">
-                                                    
-														<div>
-														ANDROID SETUP HERE
-														</div>
-														<br><br>
+                                                    <center>
+														<video controls class="pull-center" width="700" height="450">
+																<source src="" type="video/mp4">
+																<source src="" type="video/webm">
+																<source src="" type="video/ogg" codecs="theora, vorbis">
+																<div style="border: 1px solid black ; padding: 8px ;">
+																	Sorry, your browser does not support the tag used by &lt;video&gt;.
+																</div>
+														</video>																				
+													</center>
 												</div>
                                             </div>
                                         </div>
@@ -21,16 +24,19 @@
                                         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                             <div class="modal-content" >
 												<div class="modal-header">
-													<h5 class="modal-title" >ANDROID </h5>
-													
-												</div>
-												           
+													<h5 class="modal-title" >V2RAYNG ANDROID </h5>
+												</div>   
                                                 <div class="modal-body">
-                                                    
-														<div>
-														ANDROID SETUP HERE
-														</div>
-														<br><br>
+                                                    <center>
+														<video controls class="pull-center" width="700" height="450">
+																<source src="" type="video/mp4">
+																<source src="" type="video/webm">
+																<source src="" type="video/ogg" codecs="theora, vorbis">
+																<div style="border: 1px solid black ; padding: 8px ;">
+																	Sorry, your browser does not support the tag used by &lt;video&gt;.
+																</div>
+														</video>																				
+													</center>
 												</div>
                                             </div>
                                         </div>
@@ -40,16 +46,19 @@
                                         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                             <div class="modal-content" >
 												<div class="modal-header">
-													<h5 class="modal-title" >WINDOWS </h5>
-													
-												</div>
-												           
+													<h5 class="modal-title" >CLASH WINDOWS </h5>
+												</div>   
                                                 <div class="modal-body">
-														<div>
-														WINDOWS SETUP HERE
-														</div>
-														<br><br>
-													
+													<center>
+														<video controls class="pull-center" width="700" height="450">
+																<source src="" type="video/mp4">
+																<source src="" type="video/webm">
+																<source src="" type="video/ogg" codecs="theora, vorbis">
+																<div style="border: 1px solid black ; padding: 8px ;">
+																	Sorry, your browser does not support the tag used by &lt;video&gt;.
+																</div>
+														</video>																				
+													</center>
 												</div>
                                             </div>
                                         </div>
@@ -59,16 +68,19 @@
                                         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                             <div class="modal-content" >
 												<div class="modal-header">
-													<h5 class="modal-title" >WINDOWS </h5>
-													
-												</div>
-												           
+													<h5 class="modal-title" >QV2RAY WINDOWS</h5>
+												</div>  
                                                 <div class="modal-body">
-														<div>
-														WINDOWS SETUP HERE
-														</div>
-														<br><br>
-													
+													<center>
+														<video controls class="pull-center" width="700" height="450">
+																<source src="" type="video/mp4">
+																<source src="" type="video/webm">
+																<source src="" type="video/ogg" codecs="theora, vorbis">
+																<div style="border: 1px solid black ; padding: 8px ;">
+																	Sorry, your browser does not support the tag used by &lt;video&gt;.
+																</div>
+														</video>																				
+													</center>
 												</div>
                                             </div>
                                         </div>
@@ -79,36 +91,78 @@
                                         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                             <div class="modal-content" >
 												<div class="modal-header">
-													<h5 class="modal-title" >IOS </h5>
+													<h5 class="modal-title" >SHADOWROCKET IOS </h5>
 													
 												</div>
 												           
                                                 <div class="modal-body">
-														<div>
-														IOS SETUP HERE
+													<div class="demo-spacing-0 ">
+														<div class="alert alert-primary" role="alert">
+															<div class="alert-body">
+																<b>{$lang->get('IOSLogin')}</b>
+																<p style="color:red">{$lang->get('Usedid')}</p>
+																</hr>
+																<b>{$lang->get('IOSAccount')}: <span style="color:green">{$Config['ios_account']}</span></b><br>
+																<b>{$lang->get('IOSPasswd')}: <span style="color:green">{$Config['ios_passwd']}</span></b><br>
+															</div>
 														</div>
-														<br><br>
-												
+													</div>
+													</br>
+													
+													<center>
+														<video controls class="pull-center" width="700" height="450">
+																<source src="" type="video/mp4">
+																<source src="" type="video/webm">
+																<source src="" type="video/ogg" codecs="theora, vorbis">
+																<div style="border: 1px solid black ; padding: 8px ;">
+																	Sorry, your browser does not support the tag used by &lt;video&gt;.
+																</div>
+														</video>																				
+													</center>
+													<br><br>
 												</div>
                                             </div>
                                         </div>
                                     </div>
 									
-									
+									<div class="modal fade" id="quantumultx" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                                            <div class="modal-content" >
+												<div class="modal-header">
+													<h5 class="modal-title" >QUANTUMULTX IOS </h5>
+													
+												</div>
+												           
+                                                <div class="modal-body">
+													<div>
+														
+													
+													</div>
+													<br><br>
+												</div>
+                                            </div>
+                                        </div>
+                                    </div>
 									
 									<div class="modal fade" id="mac_clash" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                             <div class="modal-content" >
 												<div class="modal-header">
-													<h5 class="modal-title" >MAC</h5>
+													<h5 class="modal-title" >CLASH MAC</h5>
 													
 												</div>
 												           
                                                 <div class="modal-body">
-														<div>
-														MACSETUP HERE
-														</div>
-														<br><br>
+													<center>
+														<video controls class="pull-center" width="700" height="450">
+																<source src="" type="video/mp4">
+																<source src="" type="video/webm">
+																<source src="" type="video/ogg" codecs="theora, vorbis">
+																<div style="border: 1px solid black ; padding: 8px ;">
+																	Sorry, your browser does not support the tag used by &lt;video&gt;.
+																</div>
+														</video>																				
+													</center>
 												</div>
                                             </div>
                                         </div>
@@ -118,52 +172,64 @@
                                         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                             <div class="modal-content" >
 												<div class="modal-header">
-													<h5 class="modal-title" >MAC</h5>
-													
-												</div>
-												           
+													<h5 class="modal-title" >QV2RAY MAC</h5>
+												</div>    
                                                 <div class="modal-body">
-														<div>
-														MACSETUP HERE
-														</div>
-														<br><br>
+													<center>
+														<video controls class="pull-center" width="700" height="450">
+																<source src="" type="video/mp4">
+																<source src="" type="video/webm">
+																<source src="" type="video/ogg" codecs="theora, vorbis">
+																<div style="border: 1px solid black ; padding: 8px ;">
+																	Sorry, your browser does not support the tag used by &lt;video&gt;.
+																</div>
+														</video>																				
+													</center>
 												</div>
                                             </div>
                                         </div>
                                     </div>
 									
-									
-									<div class="modal fade" id="router_trojan" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-                                            <div class="modal-content" >
-												<div class="modal-header">
-													<h5 class="modal-title" >ROUTER</h5>
-													
-												</div>
-												           
-                                                <div class="modal-body">
-														<div>
-														ROUTER SETUP HERE
-														</div>
-														<br><br>
-												</div>
-                                            </div>
-                                        </div>
-                                    </div>
 									
 									<div class="modal fade" id="router_clash" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                             <div class="modal-content" >
 												<div class="modal-header">
-													<h5 class="modal-title" >ROUTER</h5>
-													
-												</div>
-												           
+													<h5 class="modal-title" >CLASH ROUTER</h5>
+												</div>     
                                                 <div class="modal-body">
-														<div>
-														ROUTER SETUP HERE
-														</div>
-														<br><br>
+													<center>
+														<video controls class="pull-center" width="700" height="450">
+																<source src="" type="video/mp4">
+																<source src="" type="video/webm">
+																<source src="" type="video/ogg" codecs="theora, vorbis">
+																<div style="border: 1px solid black ; padding: 8px ;">
+																	Sorry, your browser does not support the tag used by &lt;video&gt;.
+																</div>
+														</video>																				
+													</center>
+												</div>
+                                            </div>
+                                        </div>
+                                    </div>
+									
+									<div class="modal fade" id="router_trojan" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                                            <div class="modal-content" >
+												<div class="modal-header">
+													<h5 class="modal-title" >TROJAN ROUTER</h5>
+												</div>     
+                                                <div class="modal-body">
+													<center>
+														<video controls class="pull-center" width="700" height="450">
+																<source src="" type="video/mp4">
+																<source src="" type="video/webm">
+																<source src="" type="video/ogg" codecs="theora, vorbis">
+																<div style="border: 1px solid black ; padding: 8px ;">
+																	Sorry, your browser does not support the tag used by &lt;video&gt;.
+																</div>
+														</video>																				
+													</center>
 												</div>
                                             </div>
                                         </div>
@@ -174,14 +240,18 @@
                                             <div class="modal-content" >
 												<div class="modal-header">
 													<h5 class="modal-title" >LINUX</h5>
-													
-												</div>
-												           
+												</div>    
                                                 <div class="modal-body">
-														<div>
-														LINUX SETUP HERE
-														</div>
-														<br><br>
+													<center>
+														<video controls class="pull-center" width="700" height="450">
+																<source src="" type="video/mp4">
+																<source src="" type="video/webm">
+																<source src="" type="video/ogg" codecs="theora, vorbis">
+																<div style="border: 1px solid black ; padding: 8px ;">
+																	Sorry, your browser does not support the tag used by &lt;video&gt;.
+																</div>
+														</video>																				
+													</center>
 												</div>
                                             </div>
                                         </div>

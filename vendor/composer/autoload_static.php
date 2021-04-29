@@ -12,16 +12,16 @@ class ComposerStaticInit6653e74977e4db982dbe1ea100fb4db0
         '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
         '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
-        '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '9c67151ae59aff4788964ce8eb2a0f43' => __DIR__ . '/..' . '/clue/stream-filter/src/functions_include.php',
         '8cff32064859f4559445b89279f3199c' => __DIR__ . '/..' . '/php-http/message/src/filters.php',
+        '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
-        '0d59ee240a4cd96ddbb4ff164fccea4d' => __DIR__ . '/..' . '/symfony/polyfill-php73/bootstrap.php',
         '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
-        'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
-        'e40631d46120a9c38ea139981f8dab26' => __DIR__ . '/..' . '/ircmaxell/password-compat/lib/password.php',
+        '0d59ee240a4cd96ddbb4ff164fccea4d' => __DIR__ . '/..' . '/symfony/polyfill-php73/bootstrap.php',
         '72579e7bd17821bb1321b87411366eae' => __DIR__ . '/..' . '/illuminate/support/helpers.php',
+        'e40631d46120a9c38ea139981f8dab26' => __DIR__ . '/..' . '/ircmaxell/password-compat/lib/password.php',
+        'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
         '848a06382c1c883893a9c9833ae2b551' => __DIR__ . '/..' . '/symfony/polyfill/src/Apcu/bootstrap.php',
         'd075ca29fdd460a76e9d730a9724dc20' => __DIR__ . '/..' . '/symfony/polyfill/src/Php54/bootstrap.php',
         '7d1c739f734e1193d0c090179eeb95aa' => __DIR__ . '/..' . '/symfony/polyfill/src/Php55/bootstrap.php',
@@ -100,6 +100,7 @@ class ComposerStaticInit6653e74977e4db982dbe1ea100fb4db0
             'Psr\\Http\\Message\\' => 17,
             'Psr\\Container\\' => 14,
             'Predis\\' => 7,
+            'Plisio\\' => 7,
             'PayPalHttp\\' => 11,
             'PayPalCheckoutSdk\\' => 18,
             'PHPMailer\\PHPMailer\\' => 20,
@@ -161,7 +162,6 @@ class ComposerStaticInit6653e74977e4db982dbe1ea100fb4db0
         ),
         'C' => 
         array (
-            'CoinbaseCommerce\\' => 17,
             'Clue\\StreamFilter\\' => 18,
             'Cloudflare\\API\\' => 15,
         ),
@@ -173,6 +173,7 @@ class ComposerStaticInit6653e74977e4db982dbe1ea100fb4db0
         array (
             'Aws\\' => 4,
             'App\\' => 4,
+            'AlphaVantage\\' => 13,
         ),
     );
 
@@ -311,8 +312,8 @@ class ComposerStaticInit6653e74977e4db982dbe1ea100fb4db0
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Container\\' => 
         array (
@@ -321,6 +322,10 @@ class ComposerStaticInit6653e74977e4db982dbe1ea100fb4db0
         'Predis\\' => 
         array (
             0 => __DIR__ . '/..' . '/predis/predis/src',
+        ),
+        'Plisio\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/plisio/plisio-api-php/src',
         ),
         'PayPalHttp\\' => 
         array (
@@ -392,8 +397,8 @@ class ComposerStaticInit6653e74977e4db982dbe1ea100fb4db0
         ),
         'Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/php-http/message-factory/src',
-            1 => __DIR__ . '/..' . '/php-http/message/src',
+            0 => __DIR__ . '/..' . '/php-http/message/src',
+            1 => __DIR__ . '/..' . '/php-http/message-factory/src',
         ),
         'Http\\Discovery\\' => 
         array (
@@ -438,7 +443,6 @@ class ComposerStaticInit6653e74977e4db982dbe1ea100fb4db0
         'Endroid\\QrCode\\' => 
         array (
             0 => __DIR__ . '/..' . '/endroid/qr-code/src',
-            1 => __DIR__ . '/..' . '/endroid/qrcode/src',
         ),
         'Doctrine\\Inflector\\' => 
         array (
@@ -447,10 +451,6 @@ class ComposerStaticInit6653e74977e4db982dbe1ea100fb4db0
         'Doctrine\\Common\\Inflector\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Common/Inflector',
-        ),
-        'CoinbaseCommerce\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/coinbase/coinbase-commerce/src',
         ),
         'Clue\\StreamFilter\\' => 
         array (
@@ -471,6 +471,10 @@ class ComposerStaticInit6653e74977e4db982dbe1ea100fb4db0
         'App\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app',
+        ),
+        'AlphaVantage\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kokspflanze/alpha-vantage-api/src',
         ),
     );
 
@@ -670,7 +674,6 @@ class ComposerStaticInit6653e74977e4db982dbe1ea100fb4db0
         'Smarty_Internal_ParseTree_Text' => __DIR__ . '/..' . '/smarty/smarty/libs/sysplugins/smarty_internal_parsetree_text.php',
         'Smarty_Internal_Resource_Eval' => __DIR__ . '/..' . '/smarty/smarty/libs/sysplugins/smarty_internal_resource_eval.php',
         'Smarty_Internal_Resource_Extends' => __DIR__ . '/..' . '/smarty/smarty/libs/sysplugins/smarty_internal_resource_extends.php',
-        'Smarty_Internal_Resource_File' => __DIR__ . '/..' . '/smarty/smarty/libs/sysplugins/smarty_internal_resource_file.php',
         'Smarty_Internal_Resource_Php' => __DIR__ . '/..' . '/smarty/smarty/libs/sysplugins/smarty_internal_resource_php.php',
         'Smarty_Internal_Resource_Registered' => __DIR__ . '/..' . '/smarty/smarty/libs/sysplugins/smarty_internal_resource_registered.php',
         'Smarty_Internal_Resource_Stream' => __DIR__ . '/..' . '/smarty/smarty/libs/sysplugins/smarty_internal_resource_stream.php',
