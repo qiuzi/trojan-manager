@@ -69,4 +69,4 @@ crontab -e
 
 
 ### NOTE
-IF YOU UPDATE SMARTY REMEMBER TO REPLACE FILE smarty_internal_resource_file.php   IN   .../vendor/smarty/smarty/libs/sysplugins/smarty_internal_resource_file.php
+IF YOU UPDATE SMARTY REMEMBER TO REPLACE FILE smarty_internal_resource_file.php   IN   .../vendor/smarty/smarty/libs/sysplugins/smarty_internal_resource_file.php TO BE ABLE TO READ ENCYPTED FILES
