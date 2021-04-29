@@ -15,14 +15,13 @@
   
 ## Panel Installation
 ```
-- cd /root
-- wget https://github.com/frainzy1477/trojan-manager/archive/refs/tags/v1.0.zip
-- unzip trojan-manager-1.0.zip &&  mv /root/trojan-manager-1.0/*  /www/xxx/public_html  && rm -rf trojan-manager-1.0 trojan-manager-1.0.zip
+- cd /www/xxx/public_html
+- git clone https://github.com/frainzy1477/trojan-manager.git tmp -b master && mv tmp/.git . && rm -rf tmp && git reset --hard
 - chmod -R 777 /www/xxx/public_html
 - cd www/xxx/public_html
 - Edit config/config.php and set database credentials
 - Upload sql/trojan.sql to your database
-- Edit server config. eg ngnix, add below line to location /, for redirect non-https to https uncomment return and change to your domain.
+- Edit ngnix config, add below line to location /, for redirect non-https to https uncomment return  301 https://xxx.xxx.xxx$request_uri.
 
 location / {
 	try_files $uri $uri/ /index.php$is_args$args;
