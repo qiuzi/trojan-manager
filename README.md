@@ -31,9 +31,9 @@ location / {
 - Reload /Restart ngnix
 - Enjoy
 ```
-## Default login
-- login: admin
-- password: admin
+## Create Admin Login
+- cd /www/xxx/public_html
+- php xcat createAdmin
 
 ## Cron Job
 crontab -e 
