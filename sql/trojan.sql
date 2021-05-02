@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 29, 2021 at 10:25 PM
+-- Generation Time: May 02, 2021 at 10:17 AM
 -- Server version: 5.5.68-MariaDB
 -- PHP Version: 7.4.18
 
@@ -948,6 +948,14 @@ CREATE TABLE `servers` (
   `name` varchar(128) NOT NULL,
   `type` int(3) NOT NULL,
   `server` varchar(128) NOT NULL,
+  `sni` varchar(60) DEFAULT NULL,
+  `mux` int(2) NOT NULL DEFAULT '0',
+  `enablews` int(2) NOT NULL DEFAULT '0',
+  `wshost` varchar(250) DEFAULT NULL,
+  `wspath` varchar(250) DEFAULT '/',
+  `enabless` int(2) NOT NULL DEFAULT '0',
+  `method` varchar(50) NOT NULL DEFAULT 'aes-128-gcm',
+  `sspasswd` varchar(250) NOT NULL DEFAULT '123456',
   `info` varchar(128) NOT NULL,
   `status` varchar(128) NOT NULL,
   `traffic_rate` float NOT NULL DEFAULT '1',

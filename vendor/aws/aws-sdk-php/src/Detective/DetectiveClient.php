@@ -27,7 +27,5 @@ use Aws\AwsClient;
  * @method \GuzzleHttp\Promise\Promise listMembersAsync(array $args = [])
  * @method \Aws\Result rejectInvitation(array $args = [])
  * @method \GuzzleHttp\Promise\Promise rejectInvitationAsync(array $args = [])
- * @method \Aws\Result startMonitoringMember(array $args = [])
- * @method \GuzzleHttp\Promise\Promise startMonitoringMemberAsync(array $args = [])
  */
 class DetectiveClient extends AwsClient {}

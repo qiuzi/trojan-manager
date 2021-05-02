@@ -68,7 +68,6 @@ abstract class AbstractErrorParser
                             $modeledError,
                             $response
                         );
-                        $data['error_shape'] = $modeledError;
 
                         foreach ($error->getMembers() as $name => $member) {
                             switch ($member['location']) {

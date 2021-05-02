@@ -11,16 +11,8 @@
 
 namespace Symfony\Polyfill\Tests\Php70;
 
-use PHPUnit\Framework\TestCase;
-
-class Php70Test extends TestCase
+class Php70Test extends \PHPUnit_Framework_TestCase
 {
-    public function testPhpIntMin()
-    {
-        $this->assertTrue(defined('PHP_INT_MIN'));
-        $this->assertSame(~PHP_INT_MAX, PHP_INT_MIN);
-    }
-
     /**
      * @dataProvider provideIntdiv
      */
@@ -42,7 +34,7 @@ class Php70Test extends TestCase
     }
 
     /**
-     * @expectedException \ArithmeticError
+     * @expectedException ArithmeticError
      */
     public function testIntdivArithmetic()
     {
@@ -50,7 +42,7 @@ class Php70Test extends TestCase
     }
 
     /**
-     * @expectedException \DivisionByZeroError
+     * @expectedException DivisionByZeroError
      */
     public function testIntdivByZero()
     {

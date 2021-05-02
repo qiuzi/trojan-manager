@@ -11,7 +11,6 @@ use GuzzleHttp\Promise;
 abstract class AbstractConfigurationProvider
 {
     const ENV_PROFILE = 'AWS_PROFILE';
-    const ENV_CONFIG_FILE = 'AWS_CONFIG_FILE';
 
     public static $cacheKey;
 
@@ -95,20 +94,6 @@ abstract class AbstractConfigurationProvider
         $homePath = getenv('HOMEPATH');
 
         return ($homeDrive && $homePath) ? $homeDrive . $homePath : null;
-    }
-
-    /**
-     * Gets default config file location from environment, falling back to aws
-     * default location
-     *
-     * @return string
-     */
-    protected static function getDefaultConfigFilename()
-    {
-        if ($filename = getenv(self::ENV_CONFIG_FILE)) {
-            return $filename;
-        }
-        return self::getHomeDir() . '/.aws/config';
     }
 
     /**

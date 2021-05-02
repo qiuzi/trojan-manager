@@ -13,9 +13,6 @@ use Aws\Endpoint\PartitionEndpointProvider;
 use Aws\EndpointDiscovery\ConfigurationInterface;
 use Aws\EndpointDiscovery\ConfigurationProvider;
 use Aws\EndpointDiscovery\EndpointDiscoveryMiddleware;
-use Aws\Exception\InvalidRegionException;
-use Aws\Retry\ConfigurationInterface as RetryConfigInterface;
-use Aws\Retry\ConfigurationProvider as RetryConfigProvider;
 use Aws\Signature\SignatureProvider;
 use Aws\Endpoint\EndpointProvider;
 use Aws\Credentials\CredentialProvider;
@@ -134,7 +131,7 @@ class ClientResolver
         'profile' => [
             'type'  => 'config',
             'valid' => ['string'],
-            'doc'   => 'Allows you to specify which profile to use when credentials are created from the AWS credentials file in your HOME directory. This setting overrides the AWS_PROFILE environment variable. Note: Specifying "profile" will cause the "credentials" and "use_aws_shared_config_files" keys to be ignored.',
+            'doc'   => 'Allows you to specify which profile to use when credentials are created from the AWS credentials file in your HOME directory. This setting overrides the AWS_PROFILE environment variable. Note: Specifying "profile" will cause the "credentials" key to be ignored.',
             'fn'    => [__CLASS__, '_apply_profile'],
         ],
         'credentials' => [
@@ -147,7 +144,7 @@ class ClientResolver
         'endpoint_discovery' => [
             'type'     => 'value',
             'valid'    => [ConfigurationInterface::class, CacheInterface::class, 'array', 'callable'],
-            'doc'      => 'Specifies settings for endpoint discovery. Provide an instance of Aws\EndpointDiscovery\ConfigurationInterface, an instance Aws\CacheInterface, a callable that provides a promise for a Configuration object, or an associative array with the following keys: enabled: (bool) Set to true to enable endpoint discovery, false to explicitly disable it. Defaults to false; cache_limit: (int) The maximum number of keys in the endpoints cache. Defaults to 1000.',
+            'doc'      => 'Specifies settings for endpoint discovery. Provide an instance of Aws\EndpointDiscovery\ConfigurationInterface, an instance Aws\CacheInterface, a callable that provides a promise for a Configuration object, or an associative array with the following keys: enabled: (bool) Set to true to enable endpoint discovery. Defaults to false; cache_limit: (int) The maximum number of keys in the endpoints cache. Defaults to 1000.',
             'fn'       => [__CLASS__, '_apply_endpoint_discovery'],
             'default'  => [__CLASS__, '_default_endpoint_discovery_provider']
         ],
@@ -160,10 +157,10 @@ class ClientResolver
         ],
         'retries' => [
             'type'    => 'value',
-            'valid'   => ['int', RetryConfigInterface::class, CacheInterface::class, 'callable', 'array'],
-            'doc'     => "Configures the retry mode and maximum number of allowed retries for a client (pass 0 to disable retries). Provide an integer for 'legacy' mode with the specified number of retries. Otherwise provide an instance of Aws\Retry\ConfigurationInterface, an instance of  Aws\CacheInterface, a callable function, or an array with the following keys: mode: (string) Set to 'legacy', 'standard' (uses retry quota management), or 'adapative' (an experimental mode that adds client-side rate limiting to standard mode); max_attempts: (int) The maximum number of attempts for a given request. ",
+            'valid'   => ['int'],
+            'doc'     => 'Configures the maximum number of allowed retries for a client (pass 0 to disable retries). ',
             'fn'      => [__CLASS__, '_apply_retries'],
-            'default' => [RetryConfigProvider::class, 'defaultProvider']
+            'default' => 3,
         ],
         'validate' => [
             'type'    => 'value',
@@ -217,12 +214,6 @@ class ClientResolver
             'doc'       => 'Set to false to disable SDK to populate parameters that enabled \'idempotencyToken\' trait with a random UUID v4 value on your behalf. Using default value \'true\' still allows parameter value to be overwritten when provided. Note: auto-fill only works when cryptographically secure random bytes generator functions(random_bytes, openssl_random_pseudo_bytes or mcrypt_create_iv) can be found. You may also provide a callable source of random bytes.',
             'default'   => true,
             'fn'        => [__CLASS__, '_apply_idempotency_auto_fill']
-        ],
-        'use_aws_shared_config_files' => [
-            'type'      => 'value',
-            'valid'     => ['bool'],
-            'doc'       => 'Set to false to disable checking for shared aws config files usually located in \'~/.aws/config\' and \'~/.aws/credentials\'.  This will be ignored if you set the \'profile\' setting.',
-            'default'   => true,
         ],
     ];
 
@@ -408,28 +399,12 @@ class ClientResolver
 
     public static function _apply_retries($value, array &$args, HandlerList $list)
     {
-        // A value of 0 for the config option disables retries
         if ($value) {
-            $config = RetryConfigProvider::unwrap($value);
-
-            if ($config->getMode() === 'legacy') {
-                // # of retries is 1 less than # of attempts
-                $decider = RetryMiddleware::createDefaultDecider(
-                    $config->getMaxAttempts() - 1
-                );
-                $list->appendSign(
-                    Middleware::retry($decider, null, $args['stats']['retries']),
-                    'retry'
-                );
-            } else {
-                $list->appendSign(
-                    RetryMiddlewareV2::wrap(
-                        $config,
-                        ['collect_stats' => $args['stats']['retries']]
-                    ),
-                    'retry'
-                );
-            }
+            $decider = RetryMiddleware::createDefaultDecider($value);
+            $list->appendSign(
+                Middleware::retry($decider, null, $args['stats']['retries']),
+                'retry'
+            );
         }
     }
 
@@ -537,13 +512,6 @@ class ClientResolver
                 ? $args['api']['metadata']['endpointPrefix']
                 : $args['service'];
 
-            // Check region is a valid host label when it is being used to
-            // generate an endpoint
-            if (!self::isValidRegion($args['region'])) {
-                throw new InvalidRegionException('Region must be a valid RFC'
-                    . ' host label.');
-            }
-
             // Invoke the endpoint provider and throw if it does not resolve.
             $result = EndpointProvider::resolve($value, [
                 'service' => $endpointPrefix,
@@ -595,11 +563,7 @@ class ClientResolver
     public static function _apply_debug($value, array &$args, HandlerList $list)
     {
         if ($value !== false) {
-            $list->interpose(
-                new TraceMiddleware(
-                    $value === true ? [] : $value,
-                    $args['api'])
-            );
+            $list->interpose(new TraceMiddleware($value === true ? [] : $value));
         }
     }
 
@@ -868,16 +832,5 @@ EOT;
             }
         }
         return $options;
-    }
-
-    /**
-     * Validates a region to be used for endpoint construction
-     *
-     * @param $region
-     * @return bool
-     */
-    private static function isValidRegion($region)
-    {
-        return is_valid_hostlabel($region);
     }
 }

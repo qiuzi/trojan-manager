@@ -129,9 +129,7 @@ class Transfer implements PromisorInterface
             if ($options['debug'] === true) {
                 $options['debug'] = fopen('php://output', 'w');
             }
-            if (is_resource($options['debug'])) {
-                $this->addDebugToBefore($options['debug']);
-            }
+            $this->addDebugToBefore($options['debug']);
         }
     }
 
@@ -355,8 +353,7 @@ class Transfer implements PromisorInterface
     {
         $args = $this->s3Args;
         $args['Key'] = $this->createS3Key($filename);
-        $filename = $filename instanceof \SplFileInfo ? $filename->getPathname() : $filename;
-        
+
         return (new MultipartUploader($this->client, $filename, [
             'bucket'          => $args['Bucket'],
             'key'             => $args['Key'],

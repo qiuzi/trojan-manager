@@ -11,7 +11,6 @@
 
 namespace Symfony\Polyfill\Tests\Intl\Grapheme;
 
-use PHPUnit\Framework\TestCase;
 use Symfony\Polyfill\Intl\Grapheme\Grapheme as p;
 
 /**
@@ -19,7 +18,7 @@ use Symfony\Polyfill\Intl\Grapheme\Grapheme as p;
  *
  * @covers Symfony\Polyfill\Intl\Grapheme\Grapheme::<!public>
  */
-class GraphemeTest extends TestCase
+class GraphemeTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @covers Symfony\Polyfill\Intl\Grapheme\Grapheme::grapheme_extract
@@ -27,7 +26,7 @@ class GraphemeTest extends TestCase
     public function testGraphemeExtractArrayError()
     {
         grapheme_extract('', 0);
-        $this->setExpectedException('PHPUnit\Framework\Error\Warning', 'expects parameter 1 to be string, array given');
+        $this->setExpectedException('PHPUnit_Framework_Error_Warning', 'expects parameter 1 to be string, array given');
         grapheme_extract(array(), 0);
     }
 
@@ -81,15 +80,15 @@ class GraphemeTest extends TestCase
             // See http://bugs.php.net/62759 and 55562
             $this->assertSame('jà', grapheme_substr($c, -2,  3));
             $this->assertSame('', grapheme_substr($c, -1,  0));
-            $this->assertFalse(grapheme_substr($c,  1, -4));
+            $this->assertSame(false, grapheme_substr($c,  1, -4));
         }
 
         $this->assertSame('jà', grapheme_substr($c,  2));
         $this->assertSame('jà', grapheme_substr($c, -2));
         $this->assertSame('j', grapheme_substr($c, -2, -1));
         $this->assertSame('', grapheme_substr($c, -2, -2));
-        $this->assertFalse(grapheme_substr($c,  5,  0));
-        $this->assertFalse(grapheme_substr($c, -5,  0));
+        $this->assertSame(false, grapheme_substr($c,  5,  0));
+        $this->assertSame(false, grapheme_substr($c, -5,  0));
     }
 
     /**
@@ -101,17 +100,17 @@ class GraphemeTest extends TestCase
      */
     public function testGraphemeStrpos()
     {
-        $this->assertFalse(grapheme_strpos('abc', ''));
-        $this->assertFalse(grapheme_strpos('abc', 'd'));
-        $this->assertFalse(grapheme_strpos('abc', 'a', 3));
-        if (PHP_VERSION_ID < 50535 || (50600 <= PHP_VERSION_ID && PHP_VERSION_ID < 50621) || (70000 <= PHP_VERSION_ID && PHP_VERSION_ID < 70006)) {
+        $this->assertSame(false, grapheme_strpos('abc', ''));
+        $this->assertSame(false, grapheme_strpos('abc', 'd'));
+        $this->assertSame(false, grapheme_strpos('abc', 'a', 3));
+        if (defined('HHVM_VERSION_ID') || PHP_VERSION_ID < 50535 || (50600 <= PHP_VERSION_ID && PHP_VERSION_ID < 50621) || (70000 <= PHP_VERSION_ID && PHP_VERSION_ID < 70006)) {
             $this->assertSame(0, grapheme_strpos('abc', 'a', -1));
         } else {
             $this->assertFalse(grapheme_strpos('abc', 'a', -1));
         }
         $this->assertSame(1, grapheme_strpos('한국어', '국'));
         $this->assertSame(3, grapheme_stripos('DÉJÀ', 'à'));
-        $this->assertFalse(grapheme_strrpos('한국어', ''));
+        $this->assertSame(false, grapheme_strrpos('한국어', ''));
         $this->assertSame(1, grapheme_strrpos('한국어', '국'));
         $this->assertSame(3, grapheme_strripos('DÉJÀ', 'à'));
     }
@@ -134,18 +133,5 @@ class GraphemeTest extends TestCase
         }
         $this->assertSame(16, grapheme_stripos('der Straße nach Paris', 'Paris'));
         $this->assertSame('Paris', grapheme_stristr('der Straße nach Paris', 'Paris'));
-    }
-
-    public function setExpectedException($exception, $message = '', $code = null)
-    {
-        if (!class_exists('PHPUnit\Framework\Error\Notice')) {
-            $exception = str_replace('PHPUnit\\Framework\\Error\\', 'PHPUnit_Framework_Error_', $exception);
-        }
-        if (method_exists($this, 'expectException')) {
-            $this->expectException($exception);
-            $this->expectExceptionMessage($message);
-        } else {
-            parent::setExpectedException($exception, $message, $code);
-        }
     }
 }

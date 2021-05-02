@@ -126,8 +126,6 @@ use Aws\PresignUrlMiddleware;
  * @method \GuzzleHttp\Promise\Promise applyPendingMaintenanceActionAsync(array $args = []) (supported in versions 2014-10-31)
  * @method \Aws\Result backtrackDBCluster(array $args = []) (supported in versions 2014-10-31)
  * @method \GuzzleHttp\Promise\Promise backtrackDBClusterAsync(array $args = []) (supported in versions 2014-10-31)
- * @method \Aws\Result cancelExportTask(array $args = []) (supported in versions 2014-10-31)
- * @method \GuzzleHttp\Promise\Promise cancelExportTaskAsync(array $args = []) (supported in versions 2014-10-31)
  * @method \Aws\Result copyDBClusterParameterGroup(array $args = []) (supported in versions 2014-10-31)
  * @method \GuzzleHttp\Promise\Promise copyDBClusterParameterGroupAsync(array $args = []) (supported in versions 2014-10-31)
  * @method \Aws\Result copyDBClusterSnapshot(array $args = []) (supported in versions 2014-10-31)
@@ -198,8 +196,6 @@ use Aws\PresignUrlMiddleware;
  * @method \GuzzleHttp\Promise\Promise describeDBSnapshotAttributesAsync(array $args = []) (supported in versions 2014-10-31)
  * @method \Aws\Result describeEngineDefaultClusterParameters(array $args = []) (supported in versions 2014-10-31)
  * @method \GuzzleHttp\Promise\Promise describeEngineDefaultClusterParametersAsync(array $args = []) (supported in versions 2014-10-31)
- * @method \Aws\Result describeExportTasks(array $args = []) (supported in versions 2014-10-31)
- * @method \GuzzleHttp\Promise\Promise describeExportTasksAsync(array $args = []) (supported in versions 2014-10-31)
  * @method \Aws\Result describeGlobalClusters(array $args = []) (supported in versions 2014-10-31)
  * @method \GuzzleHttp\Promise\Promise describeGlobalClustersAsync(array $args = []) (supported in versions 2014-10-31)
  * @method \Aws\Result describeInstallationMedia(array $args = []) (supported in versions 2014-10-31)
@@ -212,12 +208,8 @@ use Aws\PresignUrlMiddleware;
  * @method \GuzzleHttp\Promise\Promise describeValidDBInstanceModificationsAsync(array $args = []) (supported in versions 2014-10-31)
  * @method \Aws\Result failoverDBCluster(array $args = []) (supported in versions 2014-10-31)
  * @method \GuzzleHttp\Promise\Promise failoverDBClusterAsync(array $args = []) (supported in versions 2014-10-31)
- * @method \Aws\Result failoverGlobalCluster(array $args = []) (supported in versions 2014-10-31)
- * @method \GuzzleHttp\Promise\Promise failoverGlobalClusterAsync(array $args = []) (supported in versions 2014-10-31)
  * @method \Aws\Result importInstallationMedia(array $args = []) (supported in versions 2014-10-31)
  * @method \GuzzleHttp\Promise\Promise importInstallationMediaAsync(array $args = []) (supported in versions 2014-10-31)
- * @method \Aws\Result modifyCertificates(array $args = []) (supported in versions 2014-10-31)
- * @method \GuzzleHttp\Promise\Promise modifyCertificatesAsync(array $args = []) (supported in versions 2014-10-31)
  * @method \Aws\Result modifyCurrentDBClusterCapacity(array $args = []) (supported in versions 2014-10-31)
  * @method \GuzzleHttp\Promise\Promise modifyCurrentDBClusterCapacityAsync(array $args = []) (supported in versions 2014-10-31)
  * @method \Aws\Result modifyDBCluster(array $args = []) (supported in versions 2014-10-31)
@@ -264,18 +256,12 @@ use Aws\PresignUrlMiddleware;
  * @method \GuzzleHttp\Promise\Promise startDBClusterAsync(array $args = []) (supported in versions 2014-10-31)
  * @method \Aws\Result startDBInstance(array $args = []) (supported in versions 2014-10-31)
  * @method \GuzzleHttp\Promise\Promise startDBInstanceAsync(array $args = []) (supported in versions 2014-10-31)
- * @method \Aws\Result startDBInstanceAutomatedBackupsReplication(array $args = []) (supported in versions 2014-10-31)
- * @method \GuzzleHttp\Promise\Promise startDBInstanceAutomatedBackupsReplicationAsync(array $args = []) (supported in versions 2014-10-31)
- * @method \Aws\Result startExportTask(array $args = []) (supported in versions 2014-10-31)
- * @method \GuzzleHttp\Promise\Promise startExportTaskAsync(array $args = []) (supported in versions 2014-10-31)
  * @method \Aws\Result stopActivityStream(array $args = []) (supported in versions 2014-10-31)
  * @method \GuzzleHttp\Promise\Promise stopActivityStreamAsync(array $args = []) (supported in versions 2014-10-31)
  * @method \Aws\Result stopDBCluster(array $args = []) (supported in versions 2014-10-31)
  * @method \GuzzleHttp\Promise\Promise stopDBClusterAsync(array $args = []) (supported in versions 2014-10-31)
  * @method \Aws\Result stopDBInstance(array $args = []) (supported in versions 2014-10-31)
  * @method \GuzzleHttp\Promise\Promise stopDBInstanceAsync(array $args = []) (supported in versions 2014-10-31)
- * @method \Aws\Result stopDBInstanceAutomatedBackupsReplication(array $args = []) (supported in versions 2014-10-31)
- * @method \GuzzleHttp\Promise\Promise stopDBInstanceAutomatedBackupsReplicationAsync(array $args = []) (supported in versions 2014-10-31)
  */
 class RdsClient extends AwsClient
 {
@@ -291,8 +277,7 @@ class RdsClient extends AwsClient
                             'CopyDBSnapshot',
                             'CreateDBInstanceReadReplica',
                             'CopyDBClusterSnapshot',
-                            'CreateDBCluster',
-                            'StartDBInstanceAutomatedBackupsReplication'
+                            'CreateDBCluster'
                         ],
                         'service' => 'rds',
                         'presign_param' => 'PreSignedUrl',
