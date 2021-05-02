@@ -39,8 +39,6 @@ use Aws\AwsClient;
  * @method \GuzzleHttp\Promise\Promise listPrincipalsAsync(array $args = [])
  * @method \Aws\Result listResourceSharePermissions(array $args = [])
  * @method \GuzzleHttp\Promise\Promise listResourceSharePermissionsAsync(array $args = [])
- * @method \Aws\Result listResourceTypes(array $args = [])
- * @method \GuzzleHttp\Promise\Promise listResourceTypesAsync(array $args = [])
  * @method \Aws\Result listResources(array $args = [])
  * @method \GuzzleHttp\Promise\Promise listResourcesAsync(array $args = [])
  * @method \Aws\Result promoteResourceShareCreatedFromPolicy(array $args = [])

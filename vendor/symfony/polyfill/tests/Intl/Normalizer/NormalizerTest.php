@@ -11,9 +11,8 @@
 
 namespace Symfony\Polyfill\Tests\Intl\Normalizer;
 
-use Normalizer as in;
-use PHPUnit\Framework\TestCase;
 use Symfony\Polyfill\Intl\Normalizer\Normalizer as pn;
+use Normalizer as in;
 
 /**
  * @author Nicolas Grekas <p@tchwork.com>
@@ -21,7 +20,7 @@ use Symfony\Polyfill\Intl\Normalizer\Normalizer as pn;
  * @covers Symfony\Polyfill\Intl\Normalizer\Normalizer::<!public>
  * @requires extension intl
  */
-class NormalizerTest extends TestCase
+class NormalizerTest extends \PHPUnit_Framework_TestCase
 {
     public function testConstants()
     {
@@ -45,13 +44,14 @@ class NormalizerTest extends TestCase
         $c = 'déjà';
         $d = in::normalize($c, pn::NFD);
 
-        $this->assertTrue(normalizer_is_normalized(''));
-        $this->assertTrue(normalizer_is_normalized('abc'));
-        $this->assertTrue(normalizer_is_normalized($c));
-        $this->assertTrue(normalizer_is_normalized($c, pn::NFC));
-        $this->assertFalse(normalizer_is_normalized($c, pn::NFD));
-        $this->assertFalse(normalizer_is_normalized($d, pn::NFC));
-        $this->assertFalse(normalizer_is_normalized("\xFF"));
+        // normalizer_is_normalized() returns an integer on HHVM and a boolean on PHP
+        $this->assertEquals(true, normalizer_is_normalized(''));
+        $this->assertEquals(true, normalizer_is_normalized('abc'));
+        $this->assertEquals(true, normalizer_is_normalized($c));
+        $this->assertEquals(true, normalizer_is_normalized($c, pn::NFC));
+        $this->assertEquals(false, normalizer_is_normalized($c, pn::NFD));
+        $this->assertEquals(false, normalizer_is_normalized($d, pn::NFC));
+        $this->assertEquals(false, normalizer_is_normalized("\xFF"));
 
         $this->assertFalse(pn::isNormalized($d, pn::NFD)); // The current implementation defensively says false
 
@@ -79,7 +79,7 @@ class NormalizerTest extends TestCase
         $this->assertSame($kc, normalizer_normalize($d, pn::NFKC));
         $this->assertSame($kd, normalizer_normalize($c, pn::NFKD));
 
-        $this->assertFalse(normalizer_normalize($c, -1));
+        $this->assertEquals(false, normalizer_normalize($c, -1)); // HHVM returns null, PHP returns false
         $this->assertFalse(normalizer_normalize("\xFF"));
 
         $this->assertSame("\xcc\x83\xc3\x92\xd5\x9b", normalizer_normalize("\xcc\x83\xc3\x92\xd5\x9b"));

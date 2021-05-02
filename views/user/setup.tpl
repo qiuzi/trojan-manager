@@ -125,24 +125,7 @@
                                         </div>
                                     </div>
 									
-									<div class="modal fade" id="quantumultx" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-                                            <div class="modal-content" >
-												<div class="modal-header">
-													<h5 class="modal-title" >QUANTUMULTX IOS </h5>
-													
-												</div>
-												           
-                                                <div class="modal-body">
-													<div>
-														
-													
-													</div>
-													<br><br>
-												</div>
-                                            </div>
-                                        </div>
-                                    </div>
+									
 									
 									<div class="modal fade" id="mac_clash" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
@@ -191,27 +174,7 @@
                                     </div>
 									
 									
-									<div class="modal fade" id="router_clash" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-                                            <div class="modal-content" >
-												<div class="modal-header">
-													<h5 class="modal-title" >CLASH ROUTER</h5>
-												</div>     
-                                                <div class="modal-body">
-													<center>
-														<video controls class="pull-center" width="700" height="450">
-																<source src="" type="video/mp4">
-																<source src="" type="video/webm">
-																<source src="" type="video/ogg" codecs="theora, vorbis">
-																<div style="border: 1px solid black ; padding: 8px ;">
-																	Sorry, your browser does not support the tag used by &lt;video&gt;.
-																</div>
-														</video>																				
-													</center>
-												</div>
-                                            </div>
-                                        </div>
-                                    </div>
+									
 									
 									<div class="modal fade" id="router_trojan" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">

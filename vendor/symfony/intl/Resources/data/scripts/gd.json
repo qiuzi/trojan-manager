@@ -5,7 +5,6 @@
         "Aghb": "Albàinis Chabhcasach",
         "Ahom": "Ahom",
         "Arab": "Arabais",
-        "Aran": "Nastaliq",
         "Armi": "Aramais impireil",
         "Armn": "Airmeinis",
         "Avst": "Avestanais",
@@ -26,14 +25,12 @@
         "Cari": "Carian",
         "Cham": "Cham",
         "Cher": "Cherokee",
-        "Chrs": "Khwarazm",
         "Cirt": "Cirth",
         "Copt": "Coptais",
         "Cprt": "Cìoprasais",
         "Cyrl": "Cirilis",
         "Cyrs": "Cirilis Seann-Slàbhais na h-Eaglaise",
         "Deva": "Devanagari",
-        "Diak": "Dives Akuru",
         "Dogr": "Dogra",
         "Dsrt": "Deseret",
         "Dupl": "Gearr-sgrìobhadh Duployé",
@@ -74,7 +71,6 @@
         "Khar": "Kharoshthi",
         "Khmr": "Cmèar",
         "Khoj": "Khojki",
-        "Kits": "Litrichean beaga na Khitan",
         "Knda": "Kannada",
         "Kore": "Coirèanais",
         "Kpel": "Kpelle",
@@ -177,7 +173,6 @@
         "Wole": "Woleai",
         "Xpeo": "Seann-Pheirsis",
         "Xsux": "Gèinn-sgrìobhadh Sumer is Akkad",
-        "Yezi": "Yezidis",
         "Yiii": "Yi",
         "Zanb": "Zanabazar ceàrnagach",
         "Zinh": "Dìleab",
@@ -185,6 +180,7 @@
         "Zsye": "Emoji",
         "Zsym": "Samhlaidhean",
         "Zxxx": "Gun sgrìobhadh",
-        "Zyyy": "Coitcheann"
+        "Zyyy": "Coitcheann",
+        "Zzzz": "Litreadh neo-aithnichte"
     }
 }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 29, 2021 at 05:38 PM
+-- Generation Time: May 02, 2021 at 10:17 AM
 -- Server version: 5.5.68-MariaDB
 -- PHP Version: 7.4.18
 
@@ -948,6 +948,14 @@ CREATE TABLE `servers` (
   `name` varchar(128) NOT NULL,
   `type` int(3) NOT NULL,
   `server` varchar(128) NOT NULL,
+  `sni` varchar(60) DEFAULT NULL,
+  `mux` int(2) NOT NULL DEFAULT '0',
+  `enablews` int(2) NOT NULL DEFAULT '0',
+  `wshost` varchar(250) DEFAULT NULL,
+  `wspath` varchar(250) DEFAULT '/',
+  `enabless` int(2) NOT NULL DEFAULT '0',
+  `method` varchar(50) NOT NULL DEFAULT 'aes-128-gcm',
+  `sspasswd` varchar(250) NOT NULL DEFAULT '123456',
   `info` varchar(128) NOT NULL,
   `status` varchar(128) NOT NULL,
   `traffic_rate` float NOT NULL DEFAULT '1',
@@ -1085,17 +1093,16 @@ CREATE TABLE `user` (
   `pass` varchar(256) NOT NULL,
   `passwd` varchar(16) NOT NULL,
   `uuid` text COMMENT 'uuid',
-  `del_uuid` text NOT NULL,
-  `mobile` varchar(20) NOT NULL,
+  `mobile` varchar(20) DEFAULT NULL,
   `t` int(11) NOT NULL DEFAULT '0',
   `u` bigint(20) NOT NULL,
   `d` bigint(20) NOT NULL,
-  `transfer_enable` bigint(20) NOT NULL,
+  `transfer_enable` bigint(20) DEFAULT NULL,
   `switch` tinyint(4) NOT NULL DEFAULT '1',
   `enable` tinyint(4) NOT NULL DEFAULT '1',
   `type` tinyint(4) NOT NULL DEFAULT '1',
-  `reg_date` datetime NOT NULL,
-  `money` decimal(12,2) NOT NULL,
+  `reg_date` datetime DEFAULT NULL,
+  `money` decimal(12,2) DEFAULT NULL,
   `expire_time` int(11) NOT NULL DEFAULT '0',
   `is_email_verify` tinyint(4) NOT NULL DEFAULT '0',
   `reg_ip` varchar(128) NOT NULL DEFAULT '127.0.0.1',
@@ -1116,7 +1123,7 @@ CREATE TABLE `user` (
   `afflink` varchar(25) DEFAULT NULL,
   `notification` int(3) NOT NULL DEFAULT '1',
   `used` int(3) NOT NULL DEFAULT '0',
-  `disconnect` text NOT NULL,
+  `disconnect` text,
   `ref_by` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

@@ -5,13 +5,17 @@
 ## Requirements
 - CentOS 7x64
 - Ngnix Server
-- PHP 7.2 AND above
+- PHP 7.3+ 
 - Ioncube Loader
 - Database(mysql or mariab)
 - Cron
 
 ## Install Ioncube on server first
 - https://www.howtoforge.com/tutorial/how-to-install-ioncube-loader/#-configure-ioncube-loader-on-centos
+ 
+## Install tesseract ocr
+- yum list|grep tesseract 
+- yum install tesseract -y
   
 ## Panel Installation
 ```
@@ -68,3 +72,5 @@ crontab -e
 - [SERVER BACKEND](https://github.com/frainzy1477/trojan-go-webapi)
 
 
+### NOTE
+If you update smarty remember to replace file smarty_internal_resource_file.php   IN   .../vendor/smarty/smarty/libs/sysplugins/smarty_internal_resource_file.php to be able to read encoded and encypted files

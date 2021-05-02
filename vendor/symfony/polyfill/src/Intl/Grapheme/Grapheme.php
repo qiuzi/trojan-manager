@@ -168,18 +168,16 @@ final class Grapheme
 
     private static function grapheme_position($s, $needle, $offset, $mode)
     {
-        $needle = (string) $needle;
-        if (!preg_match('/./us', $needle)) {
+        if (!preg_match('/./us', $needle .= '')) {
             return false;
         }
-        $s = (string) $s;
-        if (!preg_match('/./us', $s)) {
+        if (!preg_match('/./us', $s .= '')) {
             return false;
         }
         if ($offset > 0) {
             $s = self::grapheme_substr($s, $offset);
         } elseif ($offset < 0) {
-            if (PHP_VERSION_ID < 50535 || (50600 <= PHP_VERSION_ID && PHP_VERSION_ID < 50621) || (70000 <= PHP_VERSION_ID && PHP_VERSION_ID < 70006)) {
+            if (defined('HHVM_VERSION_ID') || PHP_VERSION_ID < 50535 || (50600 <= PHP_VERSION_ID && PHP_VERSION_ID < 50621) || (70000 <= PHP_VERSION_ID && PHP_VERSION_ID < 70006)) {
                 $offset = 0;
             } else {
                 return false;

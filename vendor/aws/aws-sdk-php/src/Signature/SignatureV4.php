@@ -75,9 +75,6 @@ class SignatureV4 implements SignatureInterface
         $this->unsigned = isset($options['unsigned-body']) ? $options['unsigned-body'] : false;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function signRequest(
         RequestInterface $request,
         CredentialsInterface $credentials
@@ -137,9 +134,6 @@ class SignatureV4 implements SignatureInterface
         return $presignHeaders;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function presign(
         RequestInterface $request,
         CredentialsInterface $credentials,
@@ -191,7 +185,7 @@ class SignatureV4 implements SignatureInterface
      * @return RequestInterface
      * @throws \InvalidArgumentException if the method is not POST
      */
-    public static function convertPostToGet(RequestInterface $request, $additionalQueryParams = "")
+    public static function convertPostToGet(RequestInterface $request)
     {
         if ($request->getMethod() !== 'POST') {
             throw new \InvalidArgumentException('Expected a POST request but '
@@ -205,7 +199,7 @@ class SignatureV4 implements SignatureInterface
 
         // Move POST fields to the query if they are present
         if ($request->getHeaderLine('Content-Type') === 'application/x-www-form-urlencoded') {
-            $body = (string) $request->getBody() . $additionalQueryParams;
+            $body = (string) $request->getBody();
             $sr = $sr->withUri($sr->getUri()->withQuery($body));
         }
 

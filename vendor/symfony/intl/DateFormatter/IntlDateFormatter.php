@@ -46,7 +46,7 @@ use Symfony\Component\Intl\Locale\Locale;
  *
  * @internal
  */
-abstract class IntlDateFormatter
+class IntlDateFormatter
 {
     /**
      * The error code from the last operation.
@@ -63,24 +63,24 @@ abstract class IntlDateFormatter
     protected $errorMessage = 'U_ZERO_ERROR';
 
     /* date/time format types */
-    public const NONE = -1;
-    public const FULL = 0;
-    public const LONG = 1;
-    public const MEDIUM = 2;
-    public const SHORT = 3;
+    const NONE = -1;
+    const FULL = 0;
+    const LONG = 1;
+    const MEDIUM = 2;
+    const SHORT = 3;
 
     /* calendar formats */
-    public const TRADITIONAL = 0;
-    public const GREGORIAN = 1;
+    const TRADITIONAL = 0;
+    const GREGORIAN = 1;
 
     /**
      * Patterns used to format the date when no pattern is provided.
      */
     private $defaultDateFormats = [
         self::NONE => '',
-        self::FULL => 'EEEE, MMMM d, y',
-        self::LONG => 'MMMM d, y',
-        self::MEDIUM => 'MMM d, y',
+        self::FULL => 'EEEE, LLLL d, y',
+        self::LONG => 'LLLL d, y',
+        self::MEDIUM => 'LLL d, y',
         self::SHORT => 'M/d/yy',
     ];
 
@@ -132,7 +132,7 @@ abstract class IntlDateFormatter
      * @throws MethodArgumentValueNotImplementedException When $locale different than "en" or null is passed
      * @throws MethodArgumentValueNotImplementedException When $calendar different than GREGORIAN is passed
      */
-    public function __construct(?string $locale, ?int $datetype, ?int $timetype, $timezone = null, ?int $calendar = self::GREGORIAN, string $pattern = null)
+    public function __construct($locale, $datetype, $timetype, $timezone = null, $calendar = self::GREGORIAN, $pattern = null)
     {
         if ('en' !== $locale && null !== $locale) {
             throw new MethodArgumentValueNotImplementedException(__METHOD__, 'locale', $locale, 'Only the locale "en" is supported');
@@ -144,10 +144,6 @@ abstract class IntlDateFormatter
 
         $this->datetype = null !== $datetype ? $datetype : self::FULL;
         $this->timetype = null !== $timetype ? $timetype : self::FULL;
-
-        if ('' === ($pattern ?? '')) {
-            $pattern = $this->getDefaultPattern();
-        }
 
         $this->setPattern($pattern);
         $this->setTimeZone($timezone);
@@ -164,7 +160,7 @@ abstract class IntlDateFormatter
      *                                                          One of the calendar constants
      * @param string|null                             $pattern  Optional pattern to use when formatting
      *
-     * @return static
+     * @return self
      *
      * @see https://php.net/intldateformatter.create
      * @see http://userguide.icu-project.org/formatparse/datetime
@@ -174,7 +170,7 @@ abstract class IntlDateFormatter
      */
     public static function create($locale, $datetype, $timetype, $timezone = null, $calendar = self::GREGORIAN, $pattern = null)
     {
-        return new static($locale, $datetype, $timetype, $timezone, $calendar, $pattern);
+        return new self($locale, $datetype, $timetype, $timezone, $calendar, $pattern);
     }
 
     /**
@@ -489,7 +485,7 @@ abstract class IntlDateFormatter
     /**
      * Set the formatter's pattern.
      *
-     * @param string $pattern A pattern string in conformance with the ICU IntlDateFormatter documentation
+     * @param string|null $pattern A pattern string in conformance with the ICU IntlDateFormatter documentation
      *
      * @return bool true on success or false on failure
      *
@@ -498,7 +494,11 @@ abstract class IntlDateFormatter
      */
     public function setPattern($pattern)
     {
-        $this->pattern = (string) $pattern;
+        if (null === $pattern) {
+            $pattern = $this->getDefaultPattern();
+        }
+
+        $this->pattern = $pattern;
 
         return true;
     }
@@ -600,19 +600,14 @@ abstract class IntlDateFormatter
      */
     protected function getDefaultPattern()
     {
-        $pattern = '';
+        $patternParts = [];
         if (self::NONE !== $this->datetype) {
-            $pattern = $this->defaultDateFormats[$this->datetype];
+            $patternParts[] = $this->defaultDateFormats[$this->datetype];
         }
         if (self::NONE !== $this->timetype) {
-            if (self::FULL === $this->datetype || self::LONG === $this->datetype) {
-                $pattern .= ' \'at\' ';
-            } elseif (self::NONE !== $this->datetype) {
-                $pattern .= ', ';
-            }
-            $pattern .= $this->defaultTimeFormats[$this->timetype];
+            $patternParts[] = $this->defaultTimeFormats[$this->timetype];
         }
 
-        return $pattern;
+        return implode(', ', $patternParts);
     }
 }

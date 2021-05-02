@@ -11,7 +11,6 @@
 
 namespace Symfony\Polyfill\Tests\Iconv;
 
-use PHPUnit\Framework\TestCase;
 use Symfony\Polyfill\Iconv\Iconv as p;
 
 /**
@@ -19,7 +18,7 @@ use Symfony\Polyfill\Iconv\Iconv as p;
  *
  * @covers Symfony\Polyfill\Iconv\Iconv::<!public>
  */
-class IconvTest extends TestCase
+class IconvTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @covers Symfony\Polyfill\Iconv\Iconv::iconv
@@ -28,13 +27,13 @@ class IconvTest extends TestCase
     {
         // Native iconv() behavior varies between versions and OS for these two tests
         // See e.g. https://bugs.php.net/52211
-        if (PHP_VERSION_ID >= 50610) {
+        if (defined('HHVM_VERSION') ? HHVM_VERSION_ID >= 30901 : (PHP_VERSION_ID >= 50610)) {
             $this->assertFalse(@iconv('UTF-8', 'ISO-8859-1', 'nœud'));
             $this->assertSame('nud', iconv('UTF-8', 'ISO-8859-1//IGNORE', 'nœud'));
         }
 
         $this->assertSame(utf8_decode('déjà'), iconv('CP1252', 'ISO-8859-1', utf8_decode('déjà')));
-        $this->assertSame('deja noeud', p::iconv('UTF-8//ignore//IGNORE', 'US-ASCII//TRANSLIT//IGNORE//translit', 'déjà nœud'));
+        $this->assertSame('deja noeud', p::iconv('UTF-8', 'US-ASCII//TRANSLIT', 'déjà nœud'));
 
         $this->assertSame('4', iconv('UTF-8', 'UTF-8', 4));
     }
@@ -61,7 +60,7 @@ class IconvTest extends TestCase
     {
         $this->assertSame(1, iconv_strpos('11--', '1-', 0, 'UTF-8'));
         $this->assertSame(2, iconv_strpos('-11--', '1-', 0, 'UTF-8'));
-        $this->assertFalse(iconv_strrpos('한국어', '', 'UTF-8'));
+        $this->assertSame(false, iconv_strrpos('한국어', '', 'UTF-8'));
         $this->assertSame(1, iconv_strrpos('한국어', '국', 'UTF-8'));
     }
 
@@ -78,6 +77,9 @@ class IconvTest extends TestCase
      */
     public function testIconvMimeEncode()
     {
+        if (defined('HHVM_VERSION')) {
+            $this->markTestSkipped('HHVM incompatible.');
+        }
         $text = "\xE3\x83\x86\xE3\x82\xB9\xE3\x83\x88\xE3\x83\x86\xE3\x82\xB9\xE3\x83\x88";
         $options = array(
             'scheme' => 'Q',
@@ -99,7 +101,7 @@ class IconvTest extends TestCase
     {
         $this->assertSame('Legal encoded-word: * .', iconv_mime_decode('Legal encoded-word: =?utf-8?B?Kg==?= .'));
         $this->assertSame('Legal encoded-word: * .', iconv_mime_decode('Legal encoded-word: =?utf-8?Q?*?= .'));
-        if ('\\' !== DIRECTORY_SEPARATOR) {
+        if (!defined('HHVM_VERSION') && '\\' !== DIRECTORY_SEPARATOR) {
             $this->assertSame('Illegal encoded-word:  .', iconv_mime_decode('Illegal encoded-word: =?utf-8?Q??= .', ICONV_MIME_DECODE_CONTINUE_ON_ERROR));
             $this->assertSame('Illegal encoded-word: .', iconv_mime_decode('Illegal encoded-word: =?utf-8?Q?'.chr(0xA1).'?= .', ICONV_MIME_DECODE_CONTINUE_ON_ERROR));
         }
@@ -111,7 +113,7 @@ class IconvTest extends TestCase
     public function testIconvMimeDecodeIllegal()
     {
         iconv_mime_decode('Legal encoded-word: =?utf-8?Q?*?= .');
-        $this->setExpectedException('PHPUnit\Framework\Error\Notice', 'Detected an illegal character in input string');
+        $this->setExpectedException('PHPUnit_Framework_Error_Notice', 'Detected an illegal character in input string');
         iconv_mime_decode('Illegal encoded-word: =?utf-8?Q?'.chr(0xA1).'?= .');
     }
 
@@ -145,7 +147,6 @@ HEADERS;
     /**
      * @covers Symfony\Polyfill\Iconv\Iconv::iconv_get_encoding
      * @covers Symfony\Polyfill\Iconv\Iconv::iconv_set_encoding
-     * @group legacy
      */
     public function testIconvGetEncoding()
     {
@@ -163,18 +164,5 @@ HEADERS;
         $this->assertSame($a, iconv_get_encoding('all'));
 
         $this->assertFalse(@iconv_set_encoding('foo', 'UTF-8'));
-    }
-
-    public function setExpectedException($exception, $message = '', $code = null)
-    {
-        if (!class_exists('PHPUnit\Framework\Error\Notice')) {
-            $exception = str_replace('PHPUnit\\Framework\\Error\\', 'PHPUnit_Framework_Error_', $exception);
-        }
-        if (method_exists($this, 'expectException')) {
-            $this->expectException($exception);
-            $this->expectExceptionMessage($message);
-        } else {
-            parent::setExpectedException($exception, $message, $code);
-        }
     }
 }

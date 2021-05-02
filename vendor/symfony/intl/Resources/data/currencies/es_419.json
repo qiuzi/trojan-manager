@@ -1,12 +1,8 @@
 {
     "Names": {
-        "ANG": [
-            "ANG",
-            "florín de las Antillas Neerlandesas"
-        ],
-        "BMD": [
-            "BMD",
-            "dólar de Bermudas"
+        "CAD": [
+            "CAD",
+            "dólar canadiense"
         ],
         "EUR": [
             "EUR",
@@ -15,10 +11,6 @@
         "MWK": [
             "MWK",
             "kwacha malauí"
-        ],
-        "NIO": [
-            "NIO",
-            "córdoba nicaragüense"
         ],
         "THB": [
             "THB",

@@ -18,7 +18,7 @@
         "Blis": "Blissymbolen",
         "Bopo": "Bopomofo",
         "Brah": "Brahmi",
-        "Brai": "braille",
+        "Brai": "Braille",
         "Bugi": "Buginees",
         "Buhd": "Buhid",
         "Cakm": "Chakma",
@@ -189,10 +189,11 @@
         "Yiii": "Yi",
         "Zanb": "vierkant Zanabazar",
         "Zinh": "Overgeërfd",
-        "Zmth": "wiskundige notatie",
+        "Zmth": "Wiskundige notatie",
         "Zsye": "emoji",
-        "Zsym": "symbolen",
+        "Zsym": "Symbolen",
         "Zxxx": "ongeschreven",
-        "Zyyy": "algemeen"
+        "Zyyy": "algemeen",
+        "Zzzz": "onbekend schriftsysteem"
     }
 }

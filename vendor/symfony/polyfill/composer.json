@@ -19,10 +19,7 @@
         "php": ">=5.3.3",
         "ircmaxell/password-compat": "~1.0",
         "paragonie/random_compat": "~1.0|~2.0",
-        "symfony/intl": "~2.3|~3.0|~4.0"
-    },
-    "require-dev": {
-        "symfony/phpunit-bridge": "~3.2"
+        "symfony/intl": "~2.3|~3.0"
     },
     "replace": {
         "symfony/polyfill-apcu": "self.version",
@@ -30,8 +27,6 @@
         "symfony/polyfill-php55": "self.version",
         "symfony/polyfill-php56": "self.version",
         "symfony/polyfill-php70": "self.version",
-        "symfony/polyfill-php71": "self.version",
-        "symfony/polyfill-php72": "self.version",
         "symfony/polyfill-iconv": "self.version",
         "symfony/polyfill-intl-grapheme": "self.version",
         "symfony/polyfill-intl-icu": "self.version",
@@ -48,13 +43,12 @@
             "src/Php55/bootstrap.php",
             "src/Php56/bootstrap.php",
             "src/Php70/bootstrap.php",
-            "src/Php71/bootstrap.php",
-            "src/Php72/bootstrap.php",
             "src/Iconv/bootstrap.php",
             "src/Intl/Grapheme/bootstrap.php",
             "src/Intl/Icu/bootstrap.php",
             "src/Intl/Normalizer/bootstrap.php",
-            "src/Mbstring/bootstrap.php"
+            "src/Mbstring/bootstrap.php",
+            "src/Xml/bootstrap.php"
         ],
         "classmap": [
             "src/Intl/Normalizer/Resources/stubs",
@@ -65,7 +59,7 @@
     "minimum-stability": "dev",
     "extra": {
         "branch-alias": {
-            "dev-master": "1.7-dev"
+            "dev-master": "1.2-dev"
         }
     }
 }

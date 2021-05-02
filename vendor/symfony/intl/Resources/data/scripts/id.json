@@ -26,7 +26,7 @@
         "Cprt": "Siprus",
         "Cyrl": "Sirilik",
         "Cyrs": "Gereja Slavonia Sirilik Lama",
-        "Deva": "Dewanagari",
+        "Deva": "Devanagari",
         "Dsrt": "Deseret",
         "Dupl": "Stenografi Duployan",
         "Egyd": "Demotik Mesir",
@@ -160,6 +160,7 @@
         "Zsye": "Emoji",
         "Zsym": "Simbol",
         "Zxxx": "Tidak Tertulis",
-        "Zyyy": "Umum"
+        "Zyyy": "Umum",
+        "Zzzz": "Skrip Tak Dikenal"
     }
 }

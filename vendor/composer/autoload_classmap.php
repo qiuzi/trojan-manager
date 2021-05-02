@@ -25,7 +25,6 @@ return array(
     'RecursiveCallbackFilterIterator' => $vendorDir . '/symfony/polyfill/src/Php54/Resources/stubs/RecursiveCallbackFilterIterator.php',
     'SendGrid' => $vendorDir . '/sendgrid/sendgrid/lib/SendGrid.php',
     'SessionHandlerInterface' => $vendorDir . '/symfony/polyfill/src/Php54/Resources/stubs/SessionHandlerInterface.php',
-    'SessionUpdateTimestampHandlerInterface' => $vendorDir . '/symfony/polyfill/src/Php70/Resources/stubs/SessionUpdateTimestampHandlerInterface.php',
     'Smarty' => $vendorDir . '/smarty/smarty/libs/Smarty.class.php',
     'SmartyBC' => $vendorDir . '/smarty/smarty/libs/SmartyBC.class.php',
     'SmartyCompilerException' => $vendorDir . '/smarty/smarty/libs/sysplugins/smartycompilerexception.php',

@@ -11,12 +11,10 @@
 
 namespace Symfony\Polyfill\Tests\Apcu;
 
-use PHPUnit\Framework\TestCase;
-
 /**
  * @requires extension apc
  */
-class ApcuTest extends TestCase
+class ApcuTest extends \PHPUnit_Framework_TestCase
 {
     public function testApcu()
     {
@@ -37,33 +35,6 @@ class ApcuTest extends TestCase
         $this->assertTrue(apcu_delete($key));
         $this->assertFalse(apcu_delete($key));
         $this->assertArrayHasKey('cache_list', apcu_cache_info());
-    }
-
-    public function testArrayCompatibility()
-    {
-        $data = array (
-            'key1' => 'value1',
-            'key2' => 'value2',
-        );
-        apcu_delete(array_keys($data));
-        apcu_add($data);
-
-        foreach ($data as $key => $value) {
-            $this->assertEquals($value, apcu_fetch($key));
-        }
-
-        $data = array (
-            'key1' => 'value2',
-            'key2' => 'value3',
-        );
-        apcu_store($data);
-
-        $this->assertEquals($data, apcu_fetch(array_keys($data)));
-        $this->assertSame(array('key1' => true, 'key2' => true), apcu_exists(array('key1', 'key2', 'key3')));
-
-        apcu_delete(array_keys($data));
-        $this->assertSame(array(), apcu_exists(array_keys($data)));
-
     }
 
     public function testAPCUIterator()

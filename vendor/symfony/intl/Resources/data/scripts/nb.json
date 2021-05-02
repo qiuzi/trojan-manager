@@ -45,7 +45,7 @@
         "Grek": "gresk",
         "Gujr": "gujarati",
         "Guru": "gurmukhi",
-        "Hanb": "han-kinesisk med bopomofo",
+        "Hanb": "hanb",
         "Hang": "hangul",
         "Hani": "han",
         "Hano": "hanunoo",
@@ -170,6 +170,7 @@
         "Zsye": "emoji",
         "Zsym": "symboler",
         "Zxxx": "språk uten skrift",
-        "Zyyy": "felles"
+        "Zyyy": "felles",
+        "Zzzz": "ukjent skrift"
     }
 }
