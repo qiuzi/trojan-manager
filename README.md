@@ -14,8 +14,8 @@
 - https://www.howtoforge.com/tutorial/how-to-install-ioncube-loader/#-configure-ioncube-loader-on-centos
  
 ## Install tesseract ocr
-yum list|grep tesseract 
-yum install tesseract -y
+- yum list|grep tesseract 
+- yum install tesseract -y
   
 ## Panel Installation
 ```
